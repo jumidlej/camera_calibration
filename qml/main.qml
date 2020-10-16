@@ -1,9 +1,11 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 1.4
+import QtQuick.Dialogs 1.3
+import QtQuick.Layouts 1.3
 
 
-Window {
+ApplicationWindow {
     id: root
     width: 700
     minimumHeight: 420
@@ -12,6 +14,41 @@ Window {
     visible: true
     color: "#d7dbdd"
     title: qsTr("Camera Calibration")
+
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("&File")
+            MenuItem{
+                text: qsTr("&Save Images")
+              //  onTriggered: fileOpenDialog.open()
+            }
+
+            MenuItem{
+                text: qsTr("&Save Parameters")
+              //  onTriggered: fileOpenDialog.open()
+            }
+
+            MenuSeparator { }
+
+            MenuItem{
+                text: qsTr("&Quit")
+                //onTriggered: popup.open()
+            }
+
+        }
+        Menu {
+            title: qsTr("&Help")
+            MenuItem{
+                text: qsTr("&Information")
+              //  onTriggered: fileOpenDialog.open()
+            }
+        }
+    }
+
+    FileDialog {
+        id: dialogUpload
+        title: "Select"
+    }
 
     TabView {
         id: tab
@@ -75,10 +112,8 @@ Window {
                         id: container_label
                         height: container.height
                         width: (retangulo_root.width-30)*0.35
-
                         anchors.right: container.right
                         anchors.top: container.top
-
                         color: "#d7dbdd"
 
                         Text {
@@ -100,6 +135,200 @@ Window {
                     border.color: "#aaaaaa"
                     border.width: 0.5
                     radius:2
+
+                    ScrollView {
+                        id:scroll
+                        anchors.fill: images_calibration
+                        clip: true
+
+
+                        Rectangle{
+                            id: intoScroll
+                            width: scroll.width-20
+                            height: root.height + (root.height -460)
+                            color: "#00FFFFFF"
+                            anchors.top: scroll.top
+                            anchors.horizontalCenter: scroll.horizontalCenter
+
+                            Rectangle{
+                                id:container_image1
+                                width: (intoScroll.width - 10)/3
+                                height: container_image1.width
+                                anchors.top: intoScroll.top
+                                anchors.left: intoScroll.left
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image1
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image2
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image1.top
+                                anchors.left: container_image1.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image2
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image3
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image2.top
+                                anchors.left: container_image2.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image3
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image4
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image1.bottom
+                                anchors.left: intoScroll.left
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image4
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image5
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image4.top
+                                anchors.left: container_image4.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image5
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image6
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image5.top
+                                anchors.left: container_image5.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image6
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image7
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image4.bottom
+                                anchors.left: intoScroll.left
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image7
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image8
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image7.top
+                                anchors.left: container_image7.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image8
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+                                }
+                            }
+
+                            Rectangle{
+                                id:container_image9
+                                width: container_image1.width
+                                height: container_image1.height
+                                anchors.top: container_image8.top
+                                anchors.left: container_image8.right
+                                color: "#00FFFFFF"
+
+                                Image {
+                                    id: image9
+                                    anchors.fill: parent
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 10
+                                    anchors.leftMargin: 5
+                                    anchors.left: parent.left
+                                    source: "imgs/image.jpg"
+
+                                }
+                            }
+
+                        }
+
+
+                    }
+
                 }
 
                 Rectangle{
@@ -149,6 +378,8 @@ Window {
 
                     SpinBox {
                         id: spinbox
+                        activeFocusOnPress: false
+                        selectByMouse : false
                         width: 50
                         anchors.right: combobox.left
                         anchors.verticalCenter: container_button_calculate.verticalCenter
@@ -187,7 +418,7 @@ Window {
 
                 Rectangle{
                     id:container_button_save
-                    height: retangulo_root.height - 30 -imageUndistorted.height
+                    height: retangulo_root.height - 50 -imageUndistorted.height
                     width: imageUndistorted.width
                     anchors.top: imageUndistorted.bottom
                     anchors.horizontalCenter: imageUndistorted.horizontalCenter
@@ -953,7 +1184,7 @@ Window {
 
                 Rectangle{
                     id:container_button_save_correction
-                    height: retangulo_root_correction.height - 30 -imageUndistorted_correction.height
+                    height: retangulo_root_correction.height - 50 -imageUndistorted_correction.height
                     width: imageUndistorted_correction.width
                     anchors.top: imageUndistorted_correction.bottom
                     anchors.horizontalCenter: imageUndistorted_correction.horizontalCenter
@@ -1050,7 +1281,7 @@ Window {
                                 height: fragment_2_1_correction.height
                                 anchors.left: box_label1_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_2_1_correction.top
@@ -1064,7 +1295,7 @@ Window {
                                     anchors.verticalCenter: box_value_k1_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1100,7 +1331,7 @@ Window {
                                 height: fragment_3_1_correction.height
                                 anchors.left: box_label2_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_3_1_correction.top
@@ -1114,7 +1345,7 @@ Window {
                                     anchors.verticalCenter: box_value_k2_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1150,7 +1381,7 @@ Window {
                                 height: fragment_4_1_correction.height
                                 anchors.left: box_label3_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_4_1_correction.top
@@ -1164,7 +1395,7 @@ Window {
                                     anchors.verticalCenter: box_value_k3_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1224,7 +1455,7 @@ Window {
                                 height: fragment_2_2_correction.height
                                 anchors.left: box_label1_2_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_2_2_correction.top
@@ -1238,7 +1469,7 @@ Window {
                                     anchors.verticalCenter: box_value_C1_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1274,7 +1505,7 @@ Window {
                                 height: fragment_3_2_correction.height
                                 anchors.left: box_label2_2_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_3_2_correction.top
@@ -1288,7 +1519,7 @@ Window {
                                     anchors.verticalCenter: box_value_C2_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1351,7 +1582,7 @@ Window {
                                 height: fragment_2_3_correction.height
                                 anchors.left: box_label1_3_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_2_3_correction.top
@@ -1365,7 +1596,7 @@ Window {
                                     anchors.verticalCenter: box_value_Cx_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1401,7 +1632,7 @@ Window {
                                 height: fragment_3_3_correction.height
                                 anchors.left: box_label2_3_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_3_3_correction.top
@@ -1415,7 +1646,7 @@ Window {
                                     anchors.verticalCenter: box_value_Cy_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1478,7 +1709,7 @@ Window {
                                 height: fragment_2_4_correction.height
                                 anchors.left: box_label1_4_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_2_4_correction.top
@@ -1492,7 +1723,7 @@ Window {
                                     anchors.verticalCenter: box_value_Fx_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
@@ -1528,7 +1759,7 @@ Window {
                                 height: fragment_3_4_correction.height
                                 anchors.left: box_label2_4_correction.right
                                 border.color: "#aaaaaa"
-                                color: "#d7dbdd"
+                                color: "#ffffff"
                                 radius: 4
                                 anchors.topMargin: 2
                                 anchors.top: fragment_3_4_correction.top
@@ -1542,20 +1773,14 @@ Window {
                                     anchors.verticalCenter: box_value_Fy_correction.verticalCenter
                                     horizontalAlignment: Text.AlignHCenter
                                     focus: false
-                                    readOnly: true
+                                    readOnly: false
                                 }
                             }
                         }
                         //fim fragments
-
                     }
-
                 }
-
-
             }
-
           }
-
     }
 }
